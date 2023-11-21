@@ -1,0 +1,20 @@
+######### Veterinaria Patitas #########
+{
+  "tenant_id": "Veterinaria Patitas",
+  "cliente_id": "70876054",
+  "cliente_datos": {
+	"nombre": "Denzel Bautista",
+	"sexo": "M",
+	"celular": "999736741",
+	"correo": "denzel@utec.edu.pe",
+	"domicilio": {
+		"direcc": "Av. Javier Prado 1928",
+		"distrito": "San Borja",
+		"provincia": "Lima",
+		"departamento": "Lima",
+		"pais": "Perú"
+	} 
+  }
+}
+
+... Editar
