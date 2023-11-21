@@ -1,0 +1,50 @@
+#para los tests
+{
+
+"cliente_id" : "77165480",
+"mascota_id": "f3c9ca06-53ea-40a9-94d9-469ea19cfbc8",
+"servicio" : "baño",
+"duracion": 2
+
+
+
+}
+
+
+
+#para los tests
+{
+
+"cliente_id" : "77165481",
+"mascota_id": "f3c9ca06-53ea-40a9-94d9-469ea19cfbc1",
+"servicio" : "cuidado",
+"duracion": 6
+
+
+
+}
+
+
+#para los tests
+{
+
+"cliente_id" : "77165482",
+"mascota_id": "f3c9ca06-53ea-40a9-94d9-469ea19cfbc2",
+"servicio" : "revisión",
+"duracion": 3
+
+
+
+}
+
+#para los tests
+{
+
+"cliente_id" : "77165483",
+"mascota_id": "f3c9ca06-53ea-40a9-94d9-469ea19cfbc3",
+"servicio" : "baño",
+"duracion": 2
+
+
+
+}
