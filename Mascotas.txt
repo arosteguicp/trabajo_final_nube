@@ -1,0 +1,12 @@
+######### Veterinaria Patitas #########
+{
+  "tenant_id": "Veterinaria Patitas",
+  "cliente_id": "70876054",
+  "mascota_datos": {
+	"nombre": "Roy",
+	"animal": "gato",
+	"raza": "esfinge",
+	"perdido": true,
+	"imagen": "linkdelaimagen"
+  }
+}
