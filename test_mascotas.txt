@@ -1,0 +1,10 @@
+{
+  "mascota_id": "f3c9ca06-53ea-40a9-94d9-469ea19cfbc8",
+  "cliente_id": "70876054",
+  "mascota_datos": {
+	"nombre": "Pipo",
+	"animal": "perro",
+        "raza": "schonau"
+	
+  }
+}
