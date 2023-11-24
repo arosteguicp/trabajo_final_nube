@@ -2,39 +2,39 @@ import json
 import boto3
 def lambda_handler(event, context):
     
-    # TODO implement
-    var_cliente_id = event['cliente_id']
-    var_mascota_id = event['mascota_id']
-    var_servicio = event['servicio']
-    var_duracion = event['duracion']
+    cliente_id = event['cliente_id']
+    mascota_id = event['mascota_id']
+    servicio = event['servicio']
+    duracion = event['duracion']
     
     dynamodb =boto3.resource('dynamodb')
 
         
-    table_servicios = dynamodb.Table('servicios')
-    table_clientes = dynamodb.Table('clientes')
+    table= dynamodb.Table('servicios')
+    table_clientes = dynamodb.Table('veterinarias')
     table_mascotas = dynamodb.Table('mascotas')
     
     # Verificar si el cliente existe
-    cliente = table_clientes.get_item(Key={'cliente_id': var_cliente_id})
+    cliente = table_clientes.get_item(Key={'cliente_id': cliente_id})
     if 'Item' not in cliente:
         return {
-            'statusCode': 400,
+            'statusCode': 404,
             'message': 'El cliente no existe'
         }
     
     # Verificar si la mascota existe
-    mascota = table_mascotas.get_item(Key={'mascota_id': var_mascota_id})
+    mascota = table_mascotas.get_item(Key={'mascota_id': mascota_id})
     if 'Item' not in mascota:
         return {
-            'statusCode': 400,
+            'statusCode': 404,
             'message': 'La mascota no existe'
         }
+        
     servicio_data = {
-        'cliente_id' : var_cliente_id,
-        'mascota_id' : var_mascota_id,
-        'servicio' : var_servicio,
-        'duracion' : var_duracion
+        'cliente_id' : cliente_id,
+        'mascota_id' : mascota_id,
+        'servicio' : servicio,
+        'duracion' : duracion
         
     }
     
