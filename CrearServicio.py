@@ -15,7 +15,7 @@ def lambda_handler(event, context):
     table_mascotas = dynamodb.Table('mascotas')
     
     # Verificar si el cliente existe
-    cliente = table_clientes.get_item(Key={'cliente_id': cliente_id})
+    cliente = table_clientes.get_item(Key={'cliente_id': cliente_id, 'tenant_id': tenant_id})
     if 'Item' not in cliente:
         return {
             'statusCode': 404,
