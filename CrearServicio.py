@@ -6,6 +6,7 @@ def lambda_handler(event, context):
     mascota_id = event['mascota_id']
     servicio = event['servicio']
     duracion = event['duracion']
+    tenant_id = event['tenant_id']
     
     dynamodb =boto3.resource('dynamodb')
 
@@ -23,7 +24,7 @@ def lambda_handler(event, context):
         }
     
     # Verificar si la mascota existe
-    mascota = table_mascotas.get_item(Key={'mascota_id': mascota_id})
+    mascota = table_mascotas.get_item(Key={'cliente_id': cliente_id, 'mascota_id': mascota_id})
     if 'Item' not in mascota:
         return {
             'statusCode': 404,
@@ -33,6 +34,7 @@ def lambda_handler(event, context):
     servicio_data = {
         'cliente_id' : cliente_id,
         'mascota_id' : mascota_id,
+        'veterinarias': tenant_id,
         'servicio' : servicio,
         'duracion' : duracion
         
