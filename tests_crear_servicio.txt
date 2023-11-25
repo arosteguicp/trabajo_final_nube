@@ -1,13 +1,10 @@
 #para los tests
 {
-
-"cliente_id" : "77165480",
-"mascota_id": "f3c9ca06-53ea-40a9-94d9-469ea19cfbc8",
-"servicio" : "baño",
-"duracion": 2
-
-
-
+"tenant_id" : "Veterinaria Patitas",
+"cliente_id" : "70876054",
+"mascota_id": "1fc01c14-cc88-43c1-ba6e-ac6789fab3a6",
+"servicio" : "limpiada de colita",
+"duracion": 12
 }
 
 
