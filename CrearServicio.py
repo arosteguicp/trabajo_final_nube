@@ -1,5 +1,8 @@
 import json
 import boto3
+import uuid # Importar el módulo uuid
+
+
 def lambda_handler(event, context):
     
     cliente_id = event['cliente_id']
@@ -30,19 +33,22 @@ def lambda_handler(event, context):
             'statusCode': 404,
             'message': 'La mascota no existe'
         }
+    else:    
+        servicio_id = str (uuid.uuid4 ())
         
-    servicio_data = {
-        'cliente_id' : cliente_id,
-        'mascota_id' : mascota_id,
-        'veterinarias': tenant_id,
-        'servicio' : servicio,
-        'duracion' : duracion
-        
-    }
+        servicio_data = {
+            'cliente_id' : cliente_id,
+            'servicio_id' : servicio_id,
+            'mascota_id' : mascota_id,
+            'veterinarias': tenant_id,
+            'servicio' : servicio,
+            'duracion' : duracion
+            
+        }
     
-    table.put_item(Item=servicio_data)
-    #salida
-    return {
-        'statusCode': 200,
-        'Servicio registrado' : servicio_data
-    }
+        table.put_item(Item=servicio_data)
+            #salida
+        return {
+            'statusCode': 200,
+            'Servicio registrado' : servicio_data
+        }
