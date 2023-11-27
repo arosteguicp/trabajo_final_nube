@@ -1,0 +1,8 @@
+# Clientes
+https://lm353upm53.execute-api.us-east-1.amazonaws.com/dev/clientes
+
+# Mascotas
+https://hp0c1aek05.execute-api.us-east-1.amazonaws.com/dev/mascotas
+
+# Servicios
+https://1p1vdxlxq1.execute-api.us-east-1.amazonaws.com/dev/servicios
