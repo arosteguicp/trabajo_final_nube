@@ -1,3 +1,4 @@
+# Crear
 import json
 import boto3
 import uuid # Importar el módulo uuid
@@ -97,3 +98,74 @@ def lambda_handler(event, context):
             'statusCode': 200,
             'Servicio registrado' : servicio_data
         }
+
+# Listar
+import boto3  # import Boto3
+from boto3.dynamodb.conditions import Key  # import Boto3 conditions
+
+def lambda_handler(event, context):
+    # Entrada (json)
+    mascota_id = event['mascota_id']
+    # Proceso
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('servicios')
+    response = table.query(
+        KeyConditionExpression=Key('mascota_id').eq(mascota_id)
+    )
+    items = response['Items']
+    num_reg = response['Count']
+    # Salida (json)
+    return {
+        'statusCode': 200,
+        'mascota_id':mascota_id,
+        'num_reg': num_reg,
+        'servicios': items
+    }
+# Modificar
+import boto3
+
+def lambda_handler(event, context):
+    # Entrada (json)
+    mascota_id = event['mascota_id']
+    servicio_id = event['servicio_id']
+    servicio_datos = event['servicio_datos']
+    # Proceso
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('servicios')
+    response = table.update_item(
+        Key={
+            'mascota_id': mascota_id,
+            'servicio_id': servicio_id
+        },
+        UpdateExpression="set servicio_datos=:servicio_datos",
+        ExpressionAttributeValues={
+            ':servicio_datos': servicio_datos
+        },
+        ReturnValues="UPDATED_NEW"
+    )
+    # Salida (json)
+    return {
+        'statusCode': 200,
+        'response': response
+    }
+# Eliminar
+import boto3
+
+def lambda_handler(event, context):
+    # Entrada (json)
+    mascota_id = event['mascota_id']
+    servicio_id = event['servicio_id']
+    # Proceso
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('servicios')
+    response = table.delete_item(
+        Key={
+            'mascota_id': mascota_id,
+            'servicio_id': servicio_id
+        }
+    )
+    # Salida (json)
+    return {
+        'statusCode': 200,
+        'response': response
+    }
